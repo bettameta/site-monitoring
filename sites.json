@@ -1,1 +1,8 @@
-
+{
+  "smtp": "smtp.yourprovider.com",
+  "sites": [
+    { "url": "https://yourclientsite1.com" },
+    { "url": "https://yourclientsite2.com" },
+    { "url": "https://yourclientsite3.com" }
+  ]
+}
