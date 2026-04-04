@@ -1,1 +1,9 @@
-
+{
+  "name": "site-monitoring",
+  "version": "1.0.0",
+  "description": "WordPress site monitoring with Slack alerts and monthly reports",
+  "main": "monitor.js",
+  "dependencies": {
+    "exceljs": "^4.4.0"
+  }
+}
