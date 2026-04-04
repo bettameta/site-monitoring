@@ -1,7 +1,7 @@
 # Site Monitoring
 
 Automated uptime, SSL, and SMTP monitoring for WordPress sites. 
-Alerts are sent to Slack via GitHub Actions, triggered every 2 hours by cron-job.org.
+Alerts are sent to Slack via GitHub Actions, triggered 4 times daily by cron-job.org.
 
 ---
 
@@ -75,7 +75,7 @@ A GitHub Personal Access Token is required for cron-job.org to trigger the workf
 |---|---|
 | Title | bettameta Sites Status |
 | URL | `https://api.github.com/repos/bettameta/site-monitoring/dispatches` |
-| Schedule | Every 2 hours |
+| Schedule | 4 times daily |
 | Request method | POST |
 | Request body | `{"event_type":"monitor"}` |
 
