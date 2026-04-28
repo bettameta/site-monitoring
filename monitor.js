@@ -81,8 +81,8 @@ async function checkPageSpeed(url) {
 async function checkSMTP(hostname) {
   return new Promise((resolve) => {
     if (!hostname) return resolve(false);
-    const socket = net.createConnection(25, hostname);
-    socket.setTimeout(5000);
+    const socket = net.createConnection(587, hostname);
+    socket.setTimeout(8000);
     socket.on('connect', () => { socket.destroy(); resolve(true); });
     socket.on('error', () => { socket.destroy(); resolve(false); });
     socket.on('timeout', () => { socket.destroy(); resolve(false); });
