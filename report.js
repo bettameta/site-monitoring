@@ -10,6 +10,13 @@ function getLogFilename() {
   return `log-${year}-${month}.json`;
 }
 
+function isLastDayOfMonth() {
+  const now = new Date();
+  const tomorrow = new Date(now);
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  return tomorrow.getMonth() !== now.getMonth();
+}
+
 function readLog() {
   const filename = getLogFilename();
   if (!fs.existsSync(filename)) {
@@ -95,7 +102,7 @@ async function generateReport(data) {
       };
     });
 
-    // Color code alert type text — accessibility improved
+    // Color code alert type text
     const alertCell = row.getCell('alertType');
     if (alertType.includes('SITE ALERT')) {
       alertCell.font = { bold: true, color: { argb: 'FFCC0000' } };
@@ -121,7 +128,7 @@ async function postToSlack(filename) {
   const now = new Date();
   const monthName = now.toLocaleString('default', { month: 'long' });
   const year = now.getFullYear();
-  const githubUrl = `https://github.com/bettameta/site-monitoring/raw/main/${filename}`;
+  const githubUrl = `https://github.com/Paradigm-Oral-Health/site-monitoring/raw/main/${filename}`;
 
   return new Promise((resolve, reject) => {
     const payload = JSON.stringify({
@@ -158,6 +165,11 @@ async function postToSlack(filename) {
 }
 
 async function run() {
+  if (!isLastDayOfMonth()) {
+    console.log('Not the last day of the month — skipping report.');
+    process.exit(0);
+  }
+
   console.log('📊 Generating monthly report...');
   const data = readLog();
   console.log(`Found ${data.length} log entries`);
