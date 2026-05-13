@@ -128,7 +128,7 @@ async function postToSlack(filename) {
   const now = new Date();
   const monthName = now.toLocaleString('default', { month: 'long' });
   const year = now.getFullYear();
-  const githubUrl = `https://github.com/Paradigm-Oral-Health/site-monitoring/raw/main/${filename}`;
+  const githubUrl = `https://github.com/bettameta/site-monitoring/raw/main/${filename}`;
 
   return new Promise((resolve, reject) => {
     const payload = JSON.stringify({
