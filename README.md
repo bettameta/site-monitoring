@@ -1,5 +1,7 @@
 # Site Monitoring
 
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+
 Automated uptime, SSL, and SMTP monitoring for WordPress sites. 
 Alerts are sent to Slack via GitHub Actions, triggered 4 times daily by cron-job.org.
 
