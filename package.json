@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "WordPress site monitoring with Slack alerts and monthly reports",
   "main": "monitor.js",
+  "author": "Reese St Amant",
+  "license": "MIT",
+  "homepage": "https://github.com/bettameta/site-monitoring",
   "dependencies": {
     "exceljs": "^4.4.0"
   }
