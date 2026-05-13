@@ -22,7 +22,7 @@ jobs:
         run: node report.js
       - name: Commit report file
         run: |
-          git config --global user.email "monitor@paradigmoralhealth.com"
+          git config --global user.email "monitor@yourdomain.com"
           git config --global user.name "Site Monitor Bot"
           git add report-*.xlsx
           git diff --staged --quiet || git commit -m "Add monthly report"
